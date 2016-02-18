@@ -2,14 +2,15 @@ class nginx::params {
   ### Operating System Configuration
   ## This is my hacky... no hiera system. Oh well. :)
   $_module_defaults = {
-    'conf_dir'    => '/etc/nginx',
-    'daemon_user' => 'nginx',
-    'pid'         => '/var/run/nginx.pid',
-    'root_group'  => 'root',
-    'log_dir'     => '/var/log/nginx',
-    'run_dir'     => '/var/nginx',
-    'package_name' => 'nginx',
-    'manage_repo'  => false,
+    'conf_dir'       => '/etc/nginx',
+    'conf_dir_param' => '*',
+    'daemon_user'    => 'nginx',
+    'pid'            => '/var/run/nginx.pid',
+    'root_group'     => 'root',
+    'log_dir'        => '/var/log/nginx',
+    'run_dir'        => '/var/nginx',
+    'package_name'   => 'nginx',
+    'manage_repo'    => false,
   }
   case $::osfamily {
     'ArchLinux': {
@@ -83,6 +84,7 @@ class nginx::params {
 
   ### Referenced Variables
   $conf_dir              = $_module_parameters['conf_dir']
+  $conf_dir_param        = $_module_parameters['conf_dir_param']
   $log_dir               = $_module_parameters['log_dir']
   $run_dir               = $_module_parameters['run_dir']
   $temp_dir              = '/tmp'
