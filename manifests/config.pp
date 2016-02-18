@@ -18,6 +18,7 @@ class nginx::config(
   $client_body_temp_path          = $::nginx::params::client_body_temp_path,
   $confd_purge                    = false,
   $conf_dir                       = $::nginx::params::conf_dir,
+  $conf_dir_param                 = $::nginx::params::conf_dir_param,
   $daemon_user                    = $::nginx::params::daemon_user,
   $global_owner                   = $::nginx::params::global_owner,
   $global_group                   = $::nginx::params::global_group,
